@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Cristiandi (http://jsbin.com/jayiwe/7/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>curso JS pro</title></title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+  let animal = Object.create(null);
+  animal.vivo = true;
+  animal.estaVivo = function() {
+    if (this.vivo) {
+      console.log('El animal esta vivo');
+    }
+  };
+
+  let perro = Object.create(animal);
+
+  perro.estaVivo();
+
+  // La herencia de prototipos funciona por delegación lo que significa que el interprete de JS
+  // buscara la propiedad a la que se le esta llamando en la cadena de prototipos del objeto
+  // JS siempre funciona con prototipos así se creen los objetos con una clase o con una funcion
+  // constructura
+</script>
+</body>
+</html>

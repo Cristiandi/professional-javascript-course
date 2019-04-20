@@ -1,0 +1,83 @@
+-Donde investigar mas:
+www.developer.mozilla.org/en
+www.w3schools.com
+
+- una variable es una dirección (espacio) en memoria a la cual se accede utilizando un identificador y su valor puede ir cambiando.
+- una constante es una dirección (espacio) en memoria a la cual se accede utilizando un identificador y su valor no cambia, es recomendable utilizar constantes en vez de variables
+debido a que cuando se utiliza una constante el sistema sabe la cantidad exacta de memoria que va a utilizar.
+- todos los números reales tienen como valor boleano true, aquellos que tienen valor boleano false son 0, null, undefined, -0, nan.
+- operadores de comparación: ==, !=, diferente que, igual que, >, mayor que, <, menor que, >=, mayor o igual que, <=, menor o igual que. en JavaScript se utiliza === 0 !==  para 
+comparar valor y tipo de dato.
+- operadores logicos: && -> y, || -> o, ! -> negación.
+- null es tun tipo de objeto diseñado para indicar la usencia de valor, este fue diseñado para ser un tipo de dato, pero, debido a un bug que se presento en auntiguos navegadores,
+se tuvo que tratar como un objeto, esto no se corrigio debido al hecho de que ya habian muchos navegadores funcionando como si null fuera un objeto. el objeto null no es igual a
+undefined, aunque sos valores son negativos osea iguales, sus tipos son diferentes. en resumen, null indica la ausencia de valor y undefined es el valor de una variable a la que
+no se le ha asignado nada o no se ha declarado.
+- NaN se obtiene del intento de la operación entre un numero y una cadena -> "asa" * 30 = NaN.
+- en JS no se genera un error al dividir un numero por 0, esto genera un Infinity -> 10 / 0 = Inifinity.
+
+FUNCIONES Y EL SCOPE
+
+- el scope en JS hace referencia al uso de elementos, dependiendo de su scope, por ejemplo si un elemento se encuentra declarado en el scope global, se puede utilizar en cualquier
+parte del código, tambien existe el scope local, de hecho puden ser n, estos son creados en la medida en la que creo una función, osea, todo lo que este dentro del bloque de codigo
+de la funcion hace parte del scope local de la misma.
+cuando no se utiliza ni var, ni let, ni const para declarar una variable, esta automaticamente se asigna al scope global, no importa si su declaración fue realizada en un scope
+local.
+la diferencia entre let y const vs var es que let y const pertenecen al scope mas proximo, mientras que si var es utilizado en el scope mas proximo (ya se de un if o for...) 
+igualmente pertenece al scope local de una funcion y por ende puede ser llamada en cualquier parte del bloque de código de la funcion.
+Existe un pincipio llamado "principio de menor acceso", se trata de controlar lo mas posible el acceso a los elementos que se vayan declarando, con el objetivo de determinar en un
+caso dado de donde proviene la falla o el error en tiempo de ejecución.
+el parametro es lo que se le debe de enviar a una función que esta esperando un valor, este valor propiamente el valor, es el argumento, osea, los argumentos llenan los parametros.
+una funcion en JS recibe siempre un arreglo de argumentos llamado arguments.
+Cuendo un tipo de dato puede ser asignado, retornado o enviado como argumento, se trata de un FCC first class citizen, en JS las funciones tambien FCC.
+CONTEXTO
+- en JS se tiene una variable especial this que representa al objeto cuyo codigo se esta ejecutando en ese momento, es valor de this cambia dependiendo de en que parte del código 
+se encuentre, al valor que se le asigna a este objeto se le conoce como el contexto. en JS el contexto es flexible y muy dinamico, entre ellas es que podemos cambiar de paradigma
+de programación utilizando el lenguaje e implementar distintos patrones de diseño con facilidad.
+- el valor de this, siempre sera el valor del objeto que invoco la funcion, no importa de donde haya venido la funcion ni por donde haya pasado, el contexto es el objeto que manda
+a llmar la funcion.
+
+OBJETOS
+
+- en un lenguaje orientado a prototipos las clases no existen, los objetos se crean a partir de otros objetos e incluso pueden heredar entre ellos.
+- en la propiedad __proto__ se almacena toods los objetos de JS, esta propiedad nos indica con que prototipo fue creado el objeto JS.
+
+PROGRAMACION ASINCRONA
+
+- en JS el codigo no se ejecuta con multi tarea, se pueden ejecutar tareas que tienen a demorarse más a mismo tiempo que otras gracias al event loop. esto permite aprovechar al
+maximo la capacidad del equipo, lo que garantiza que la ejecución del código no termine, mientras las tareas demoradas terminan el codigo se sigue ejecutando.
+- un callback es una funcion que se pasa como argumento a un metodo asincrono esta funcion se ejecuta cuando el metodo asincrono culmine su proceso.
+- las promesas si son un tipo de objeto en JS, el cual contiene un metodo then al cual se le envia una funcion, esta funcion se ejecuta solo si la promesa se resuelve o termina 
+su ejecución sin errores, tambien contiene el metodo catch el cual se le envia una funcion, esta funcion se ejecuta si la promesa falla.
+- una promesa es un objeto que probablemente produsca un valor en el futuro, este valor puede ser el resultado de una operación asincrona o un error del porque no se pudo completar
+alguna operación.
+- las promesas pueden estar en los siguientes estados: fullfilled -> la promesa se cumplio con existo, rejected -> la promesa no se cumplio co exito, pending -> la promesa no se ha
+resuelto osea su operacion no ha terminado, setled -> cuando la promesa termino con existo.
+- al momento de crear una nueva promesa se puede utiizar la clase Promise la cual resive en su contructor una funcion llamada executor
+
+MODULOS
+-en JS siempre se ha tenido la necesidad de separar código en elementos independientes por ejemplo para poder exportar e importar librerias, antes sin los modulos las librerias 
+solian agregar una variable u objeto en el scope global para el uso de la libreria.
+-los modulos de ES introduden una manera explicita de establecer relaciones entre archivos, como parte de la sintaxis de los modulos.
+-los modulos no utilizan el scope global, de hecho utilizan su propio scope llamado module scope.
+-en resumen los modulos son una mejora significativa para establecer las relaciones entre los archivos que se utilizan en un proyecto JS, para definir explicitamente que cosas
+se van a exportar  de un archivo y que cosas vas a importar en otro.
+-tanto los archivos que exportan, como los archivos que importan modulos, son considerados como modulos por el interprete de JS.
+-no se puede declarar una variable al exportar por default porque en si mismo la exportación por default crea una variable, un modulo puede tener muchos export con nombre, pero,
+solo un export default.
+-no se puse modificar un valor importado, pero este puede ser cambiado desde adentro del modulo que lo exporta.
+
+GENERADORES E ITERADORES
+-un iterador es cualquier objeto que implementa el iterator protocol, en otras palabras cualquier objeto que implemente el metodo next() que retorne una propiedad value y una 
+propiedad done, implementa el protocolo y por lo tanto es un iterador.
+-un iterador no tiene forma de reinicarlo, este solo se recorre una, cada llamada despues de que el iterador se haya terminado de recorrer debe de retornar el valor final del 
+iterador y la propiedad done como true.
+-los generadores se distinguen por llevar un * despues de la palabra reservada function, las funciones generadoras siempre retornan generadores, en un generador, no nos preocupamos
+por guardar o conservar un estado interno.
+-la palabra reservada yield se utiliza para pusar una función y luego reanudarla en ese punto.
+-cuando utilizamos return dentro de una funcion generadora, el atributo done del generador para a true. podemos concuclir que utuilizar return dentro de una funcion generadora
+es como utilizat yield y ademas terminar el generado, todo lo que apararez despues del un return no se ejecutara porque el generador ya ha terminado.
+-los simbolos son primitivos de JS, el objetivo de los simbolos es brindar la posibilidad de identificar mediante un valor unico.
+-para que un metodo sea iterable debe poseer el metodo @@iterator, se puede encontrar el simbolo @@iterator en la constante Symbol.iterator, este simbolo es uno de los simbolos 
+que se conocen en JS FUEL KNOW SYMBOLS - SIMBOLOS BIEN CONOCIDOS.
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Cristiandi (http://jsbin.com/jayiwe/7/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Ejercicio 3</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+const numberA = parseInt(prompt('Digite hasta donde quiere que llege la sucesión:'));
+
+let fibonacci = [];
+
+for (let index = 0; index < numberA; index++) {
+  if (index === 0){
+    fibonacci[index] = 0
+  } else if (index === 1) {
+    fibonacci[index] = 1;
+  } 
+  else {
+    fibonacci[index] = fibonacci[index - 1] + fibonacci[index - 2];
+  }
+  console.log(fibonacci[index]);
+}
+
+//  0 , 1 , 1 , 2 , 3 , 5 , 8 , 13 , 21 
+</script>
+</body>
+</html>

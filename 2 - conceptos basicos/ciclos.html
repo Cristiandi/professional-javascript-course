@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Cristiandi (http://jsbin.com/jayiwe/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+// CICLOS
+
+console.log('for');
+for(let i = 0; i <= 10; i++) {
+  console.log(i);
+}
+
+console.log('for cortado por el break');
+for(let i = 0; i <= 10; i++) {
+  if(i >= 5) break;
+  console.log(i);
+}
+
+console.log('for utilizando continue');
+for(let i = 0; i <= 10; i++) {
+  if(i === 5) continue;
+  console.log(i);
+}
+
+console.log('while');
+let i = 1;
+while(i <= 10) {
+  i++;
+  console.log(i);
+}
+</script>
+</body>
+</html>
